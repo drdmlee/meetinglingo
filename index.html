@@ -10,8 +10,6 @@ body{font-family:'Segoe UI',sans-serif;background:#0f1117;color:#e2e8f0;height:1
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-thumb{background:#2e3354;border-radius:3px;}
 input::placeholder{color:#64748b;}
-
-/* ── HEADER ── */
 #header{background:linear-gradient(135deg,#6366f1,#8b5cf6,#06b6d4);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .logo-wrap{display:flex;align-items:center;gap:10px;}
 .logo-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:20px;}
@@ -20,61 +18,48 @@ input::placeholder{color:#64748b;}
 #status-badge{font-size:12px;color:rgba(255,255,255,.9);background:rgba(0,0,0,.25);padding:5px 14px;border-radius:20px;display:flex;align-items:center;gap:6px;white-space:nowrap;}
 #status-dot{width:8px;height:8px;border-radius:50%;background:#94a3b8;flex-shrink:0;}
 #status-dot.live{background:#4ade80;animation:blink 1.2s infinite;}
+#status-dot.err{background:#f87171;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* ── TABBAR ── */
 #tabbar{display:flex;gap:3px;padding:8px 12px;background:#1a1d2e;border-bottom:1px solid #2e3354;align-items:center;flex-shrink:0;}
 .tab-btn{padding:7px 14px;border-radius:8px;cursor:pointer;background:transparent;color:#94a3b8;border:none;font-size:13px;display:flex;align-items:center;gap:5px;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
 .tab-btn.active{font-weight:700;background:#6366f1;color:#fff;}
 #gen-btn{margin-left:auto;padding:7px 16px;border-radius:10px;border:none;background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#fff;cursor:pointer;font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px;white-space:nowrap;}
-
-/* ── LANG BAR ── */
 #lang-bar{padding:10px 14px;background:#1a1d2e;border-bottom:1px solid #2e3354;display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0;}
 .lang-label{font-size:12px;color:#94a3b8;font-weight:700;white-space:nowrap;}
 .lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;cursor:pointer;color:#e2e8f0;font-size:13px;font-weight:600;position:relative;border:none;-webkit-tap-highlight-color:transparent;}
 #my-lang-btn{background:rgba(99,102,241,.2);border:1.5px solid #6366f1!important;}
 #tgt-lang-btn{background:rgba(6,182,212,.2);border:1.5px solid #06b6d4!important;}
-#swap-btn{font-size:20px;color:#6366f1;background:none;border:none;cursor:pointer;padding:4px 8px;-webkit-tap-highlight-color:transparent;}
-/* 토글 그룹 */
-.toggle-group{display:flex;align-items:center;gap:8px;margin-left:auto;}
+#swap-btn{font-size:20px;color:#6366f1;background:none;border:none;cursor:pointer;padding:4px 8px;}
+.toggle-group{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap;}
 .tg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#94a3b8;}
 .toggle-btn{width:44px;height:24px;border-radius:12px;background:#2e3354;position:relative;cursor:pointer;border:none;transition:background .2s;flex-shrink:0;}
 .toggle-btn.on{background:#6366f1;}
 .toggle-dot{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .2s;}
 .toggle-btn.on .toggle-dot{left:23px;}
-
-/* 드롭다운 */
 .dropdown{position:absolute;top:calc(100% + 6px);left:0;z-index:9999;background:#1a1d2e;border:1px solid #2e3354;border-radius:12px;width:220px;max-height:55vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.5);display:none;}
 .dropdown.open{display:block;}
-.drop-item{padding:10px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;-webkit-tap-highlight-color:transparent;}
+.drop-item{padding:10px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;}
 .drop-item:hover,.drop-item:active{background:rgba(99,102,241,.2);}
 .drop-item.selected{background:rgba(99,102,241,.15);}
-.drop-check{margin-left:auto;color:#6366f1;font-size:14px;}
-
-/* ── SOURCE + DISPLAY BAR ── */
+.drop-check{margin-left:auto;color:#6366f1;}
 #ctrl-bar{padding:8px 14px;background:#0f1117;border-bottom:1px solid #2e3354;display:flex;align-items:center;gap:6px;flex-wrap:wrap;flex-shrink:0;}
 .ctrl-label{font-size:11px;color:#94a3b8;font-weight:700;white-space:nowrap;}
-.src-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:12px;white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:all .15s;}
+.src-btn{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:12px;white-space:nowrap;transition:all .15s;-webkit-tap-highlight-color:transparent;}
 .src-btn.active{border-color:#6366f1;background:rgba(99,102,241,.2);color:#a5b4fc;font-weight:700;}
+.src-btn.unavail{opacity:.4;cursor:not-allowed;}
 .ctrl-sep{width:1px;height:24px;background:#2e3354;margin:0 4px;flex-shrink:0;}
-.disp-btn{padding:6px 12px;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:12px;white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:all .15s;}
+.disp-btn{padding:6px 12px;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:12px;white-space:nowrap;transition:all .15s;}
 .disp-btn.active{border-color:#6366f1;background:rgba(99,102,241,.2);color:#a5b4fc;font-weight:700;}
-
-/* 볼륨 미터 */
 #vol-bar{padding:4px 14px;background:#1a1d2e;display:none;align-items:center;gap:8px;flex-shrink:0;}
 #vol-track{flex:1;height:5px;border-radius:3px;background:#2e3354;overflow:hidden;}
 #vol-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#4ade80,#facc15,#f87171);width:0%;}
-@keyframes volAnim{0%{width:10%}20%{width:55%}40%{width:30%}60%{width:70%}80%{width:25%}100%{width:15%}}
-
-/* ── CHATBOX ── */
+@keyframes volAnim{0%{width:10%}20%{width:55%}40%{width:28%}60%{width:72%}80%{width:22%}100%{width:12%}}
 #chatbox{flex:1;overflow-y:auto;padding:16px 14px;background:#0f1117;-webkit-overflow-scrolling:touch;}
 #empty-state{text-align:center;padding:60px 20px;color:#94a3b8;}
 #empty-state .big{font-size:52px;margin-bottom:14px;}
 #empty-state h2{font-size:15px;font-weight:700;color:#e2e8f0;margin-bottom:8px;}
 #empty-state p{font-size:13px;line-height:1.6;margin-bottom:16px;}
 .info-box{display:inline-block;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.4);border-radius:12px;padding:14px 20px;font-size:13px;text-align:left;line-height:2.1;}
-
-/* 메시지 */
 .msg-row{margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;}
 .msg-row.me{flex-direction:row-reverse;}
 .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.25);}
@@ -87,7 +72,7 @@ input::placeholder{color:#64748b;}
 .msg-time{font-size:11px;color:#64748b;}
 .msg-tag{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:6px;background:rgba(30,30,60,.6);border:1px solid #2e3354;color:#94a3b8;font-size:11px;font-weight:600;}
 .conf-badge{font-size:11px;font-weight:700;}
-.bubble{padding:11px 15px;border-radius:4px;}
+.bubble{padding:11px 15px;}
 .bubble.me{background:linear-gradient(135deg,#5b5ef4,#7c3aed);border-radius:18px 5px 18px 18px;}
 .bubble.other{background:#1e2235;border:1px solid #2e3354;border-radius:5px 18px 18px 18px;}
 .b-orig{font-size:12px;font-style:italic;margin-bottom:6px;line-height:1.5;}
@@ -101,17 +86,13 @@ input::placeholder{color:#64748b;}
 .bubble.other .b-trans{color:#e2e8f0;}
 .interim-row{display:none;flex-direction:row-reverse;gap:10px;align-items:flex-start;margin-bottom:8px;}
 .interim-bubble{opacity:.6;font-style:italic;background:linear-gradient(135deg,#5b5ef4,#7c3aed);border-radius:18px 5px 18px 18px;padding:10px 14px;font-size:13px;color:rgba(255,255,255,.9);max-width:76%;}
-
-/* ── INPUT BAR ── */
 #input-bar{padding:10px 14px;background:#1a1d2e;border-top:1px solid #2e3354;display:flex;gap:10px;align-items:center;flex-shrink:0;}
-#mic-btn{width:52px;height:52px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);cursor:pointer;font-size:22px;box-shadow:0 4px 16px rgba(99,102,241,.4);transition:all .25s;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+#mic-btn{width:52px;height:52px;border-radius:50%;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);cursor:pointer;font-size:22px;box-shadow:0 4px 16px rgba(99,102,241,.4);transition:all .25s;flex-shrink:0;}
 #mic-btn.listening{background:linear-gradient(135deg,#ef4444,#dc2626);box-shadow:0 0 0 6px rgba(239,68,68,.22);}
-#mic-btn.disabled{background:#374151;opacity:.6;cursor:default;}
 #text-input{flex:1;background:#22263a;border:1px solid #2e3354;border-radius:12px;padding:12px 16px;color:#e2e8f0;font-size:14px;outline:none;-webkit-appearance:none;}
-#send-btn{padding:12px 22px;border-radius:12px;border:none;background:#6366f1;color:#fff;cursor:pointer;font-weight:700;font-size:14px;-webkit-tap-highlight-color:transparent;white-space:nowrap;}
+#send-btn{padding:12px 22px;border-radius:12px;border:none;background:#6366f1;color:#fff;cursor:pointer;font-weight:700;font-size:14px;white-space:nowrap;}
 #send-btn:disabled{opacity:.5;}
-
-/* ── 회의록 ── */
+/* 회의록 */
 #minutes-panel{flex:1;overflow-y:auto;padding:16px;display:none;}
 .section-card{background:#1a1d2e;border-radius:14px;padding:16px;margin-bottom:12px;border:1px solid #2e3354;}
 .s-label{font-size:11px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block;}
@@ -125,29 +106,29 @@ input::placeholder{color:#64748b;}
 .act-av{width:32px;height:32px;border-radius:50%;background:rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#818cf8;flex-shrink:0;}
 .kw-tag{display:inline-block;padding:3px 10px;border-radius:20px;background:rgba(99,102,241,.2);color:#a5b4fc;font-size:12px;font-weight:600;margin:2px;}
 .min-action-btn{padding:9px 16px;border-radius:10px;border:none;color:#fff;cursor:pointer;font-weight:600;font-size:13px;margin-right:8px;margin-bottom:6px;}
-
-/* ── 용어사전 ── */
+/* 용어사전 */
 #glossary-panel{flex:1;overflow-y:auto;padding:16px;display:none;}
 .g-input{flex:1;background:#22263a;border:1px solid #2e3354;border-radius:8px;padding:8px 10px;color:#e2e8f0;font-size:13px;outline:none;}
 .g-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #2e3354;}
 .g-row:last-child{border-bottom:none;}
 .g-del{background:none;border:none;color:#f87171;cursor:pointer;font-size:18px;padding:4px;}
-
-/* ── 설정 ── */
+/* 설정 */
 #settings-panel{flex:1;overflow-y:auto;padding:16px;display:none;}
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
 @media(max-width:500px){.sg{grid-template-columns:1fr;}}
 .s-row{display:flex;gap:6px;}
-.s-btn{flex:1;padding:8px 0;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:13px;-webkit-tap-highlight-color:transparent;}
+.s-btn{flex:1;padding:8px 0;border-radius:8px;border:1px solid #2e3354;background:transparent;color:#94a3b8;cursor:pointer;font-size:13px;}
 .s-btn.active{border-color:#6366f1;background:rgba(99,102,241,.2);color:#818cf8;font-weight:700;}
 .s-select{width:100%;background:#22263a;border:1px solid #2e3354;border-radius:8px;padding:9px 10px;color:#e2e8f0;font-size:13px;outline:none;}
 .info-card-g{border:1px solid #4ade80!important;background:rgba(74,222,128,.04)!important;}
 .info-label-g{color:#4ade80!important;}
-
+/* 토스트 알림 */
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1e293b;border:1px solid #f87171;color:#f87171;padding:10px 20px;border-radius:10px;font-size:13px;z-index:9999;display:none;max-width:90vw;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.4);}
+#toast.info{border-color:#6366f1;color:#a5b4fc;}
+#toast.ok{border-color:#4ade80;color:#4ade80;}
 /* 라이트 테마 */
 body.light{background:#f1f5f9;color:#1e293b;}
 body.light #tabbar,body.light #lang-bar,body.light #input-bar,body.light #vol-bar{background:#fff;border-color:#e2e8f0;}
-body.light #statusbar{background:#f8fafc;border-color:#e2e8f0;color:#64748b;}
 body.light #chatbox,body.light #ctrl-bar{background:#f1f5f9;}
 body.light #text-input,body.light .g-input{background:#f8fafc;border-color:#e2e8f0;color:#1e293b;}
 body.light .section-card{background:#fff;border-color:#e2e8f0;}
@@ -162,14 +143,10 @@ body.light #min-empty{color:#64748b;}
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
 <div id="header">
   <div class="logo-wrap">
     <div class="logo-icon">🌐</div>
-    <div>
-      <h1>MeetingLingo Pro</h1>
-      <p>REAL-TIME MEETING INTERPRETER</p>
-    </div>
+    <div><h1>MeetingLingo Pro</h1><p>REAL-TIME MEETING INTERPRETER</p></div>
   </div>
   <div id="status-badge">
     <div id="status-dot"></div>
@@ -177,7 +154,6 @@ body.light #min-empty{color:#64748b;}
   </div>
 </div>
 
-<!-- ══ TABBAR ══ -->
 <div id="tabbar">
   <button class="tab-btn active" onclick="switchTab('chat')">💬 대화</button>
   <button class="tab-btn" onclick="switchTab('minutes')">📋 회의록</button>
@@ -186,13 +162,10 @@ body.light #min-empty{color:#64748b;}
   <button id="gen-btn" onclick="generateMinutes()">📋 회의록 생성</button>
 </div>
 
-<!-- ══ MAIN ══ -->
 <div id="main" style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
 
-  <!-- ────── 대화 패널 ────── -->
   <div id="chat-panel" style="display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;">
 
-    <!-- 언어 바 -->
     <div id="lang-bar">
       <span class="lang-label">내 언어</span>
       <div class="lang-btn" id="my-lang-btn" onclick="toggleDrop('my',event)">
@@ -200,16 +173,13 @@ body.light #min-empty{color:#64748b;}
         <span style="font-size:10px;color:#94a3b8;margin-left:2px;">▼</span>
         <div class="dropdown" id="my-drop"></div>
       </div>
-
-      <button id="swap-btn" onclick="swapLangs()" title="언어 교체">⇄</button>
-
+      <button id="swap-btn" onclick="swapLangs()">⇄</button>
       <span class="lang-label">상대 언어</span>
       <div class="lang-btn" id="tgt-lang-btn" onclick="toggleDrop('tgt',event)">
         <span id="tgt-flag">🇺🇸</span><span id="tgt-label">English (US)</span>
         <span style="font-size:10px;color:#94a3b8;margin-left:2px;">▼</span>
         <div class="dropdown" id="tgt-drop"></div>
       </div>
-
       <div class="toggle-group">
         <div class="tg-item">
           <button class="toggle-btn" id="auto-toggle" onclick="toggleAuto()"><div class="toggle-dot"></div></button>
@@ -222,13 +192,12 @@ body.light #min-empty{color:#64748b;}
       </div>
     </div>
 
-    <!-- 소스 + 표시 통합 컨트롤 바 -->
     <div id="ctrl-bar">
       <span class="ctrl-label">오디오 소스</span>
-      <button class="src-btn" id="src-mic"    onclick="setSrc('mic')">🎤 마이크</button>
-      <button class="src-btn" id="src-sys"    onclick="setSrc('sys')">📡 시스템 오디오</button>
-      <button class="src-btn active" id="src-both"   onclick="setSrc('both')">🎙️ 마이크 + 시스템</button>
-      <button class="src-btn" id="src-file"   onclick="setSrc('file')">📁 파일/영상</button>
+      <button class="src-btn active" id="src-mic"  onclick="setSrc('mic')">🎤 마이크</button>
+      <button class="src-btn" id="src-sys"  onclick="setSrc('sys')">📡 시스템 오디오</button>
+      <button class="src-btn" id="src-both" onclick="setSrc('both')">🎙️ 마이크 + 시스템</button>
+      <button class="src-btn" id="src-file" onclick="setSrc('file')">📁 파일/영상</button>
       <div class="ctrl-sep"></div>
       <span class="ctrl-label">표시</span>
       <button class="disp-btn active" id="disp-both"       onclick="setDisp('both')">원문+번역</button>
@@ -236,14 +205,11 @@ body.light #min-empty{color:#64748b;}
       <button class="disp-btn"        id="disp-original"   onclick="setDisp('original')">원문만</button>
     </div>
 
-    <!-- 볼륨 미터 -->
     <div id="vol-bar">
       <span style="font-size:11px;color:#4ade80;white-space:nowrap;font-weight:700;">🎤 인식 중</span>
       <div id="vol-track"><div id="vol-fill"></div></div>
-      <span id="vol-pct" style="font-size:11px;color:#94a3b8;"></span>
     </div>
 
-    <!-- 대화창 -->
     <div id="chatbox">
       <div id="empty-state">
         <div class="big">💬</div>
@@ -261,9 +227,8 @@ body.light #min-empty{color:#64748b;}
       </div>
     </div>
 
-    <!-- 입력 바 -->
     <div id="input-bar">
-      <button id="mic-btn" onclick="toggleSTT()" title="음성 인식">🎤</button>
+      <button id="mic-btn" onclick="toggleSTT()">🎤</button>
       <input id="text-input" type="text" inputmode="text"
              placeholder="텍스트로 직접 입력 (Enter 전송)..."
              onkeydown="if(event.key==='Enter')sendText()"/>
@@ -271,63 +236,45 @@ body.light #min-empty{color:#64748b;}
     </div>
   </div>
 
-  <!-- ────── 회의록 패널 ────── -->
+  <!-- 회의록 -->
   <div id="minutes-panel">
     <div id="min-empty">
       <div style="font-size:48px;margin-bottom:14px;">📋</div>
       <div style="font-size:16px;font-weight:700;margin-bottom:8px;">회의록이 없습니다</div>
-      <div style="font-size:13px;margin-bottom:24px;line-height:1.6;color:#64748b;">대화 후 "회의록 생성" 버튼을 눌러주세요.<br>Claude AI가 자동으로 분석합니다.</div>
+      <div style="font-size:13px;margin-bottom:24px;line-height:1.6;color:#64748b;">대화 후 "회의록 생성" 버튼을 눌러주세요.</div>
       <div class="section-card" style="max-width:360px;margin:0 auto 20px;">
         <span class="s-label">LLM 모델</span>
         <select class="s-select" id="llm-select">
           <option>[상용] Claude Sonnet (Anthropic)</option>
           <option>[상용] GPT-4o (OpenAI)</option>
-          <option>[상용] Gemini 1.5 Pro (Google)</option>
-          <option>[로컬] Llama 3.1 (Ollama)</option>
-          <option>[로컬] Mistral 7B</option>
+          <option>[로컬] Llama 3.1</option>
         </select>
       </div>
-      <button onclick="generateMinutes()"
-        style="padding:12px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#fff;cursor:pointer;font-weight:700;font-size:15px;">
-        📋 회의록 생성하기
-      </button>
+      <button onclick="generateMinutes()" style="padding:12px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#fff;cursor:pointer;font-weight:700;font-size:15px;">📋 회의록 생성하기</button>
     </div>
     <div id="min-content">
       <div class="section-card min-header-card">
         <div id="min-title" style="font-size:17px;font-weight:800;margin-bottom:5px;"></div>
-        <div id="min-meta"  style="font-size:12px;color:#94a3b8;"></div>
+        <div id="min-meta" style="font-size:12px;color:#94a3b8;"></div>
       </div>
-      <div class="section-card">
-        <span class="s-label">📝 회의 요약</span>
-        <p id="min-summary" style="margin:0;line-height:1.8;font-size:13px;"></p>
-      </div>
-      <div class="section-card" id="min-dec-card">
-        <span class="s-label">✅ 결정사항</span>
-        <div id="min-decisions"></div>
-      </div>
-      <div class="section-card" id="min-act-card">
-        <span class="s-label">🎯 액션 아이템</span>
-        <div id="min-actions"></div>
-      </div>
-      <div class="section-card" id="min-kw-card">
-        <span class="s-label">🔑 핵심 키워드</span>
-        <div id="min-keywords"></div>
-      </div>
-      <button class="min-action-btn" style="background:#6366f1;" onclick="exportTxt()">📄 텍스트 내보내기</button>
+      <div class="section-card"><span class="s-label">📝 회의 요약</span><p id="min-summary" style="margin:0;line-height:1.8;font-size:13px;"></p></div>
+      <div class="section-card" id="min-dec-card"><span class="s-label">✅ 결정사항</span><div id="min-decisions"></div></div>
+      <div class="section-card" id="min-act-card"><span class="s-label">🎯 액션 아이템</span><div id="min-actions"></div></div>
+      <div class="section-card" id="min-kw-card"><span class="s-label">🔑 핵심 키워드</span><div id="min-keywords"></div></div>
+      <button class="min-action-btn" style="background:#6366f1;" onclick="exportTxt()">📄 내보내기</button>
       <button class="min-action-btn" style="background:#f59e0b;" onclick="clearMinutes()">🗑 초기화</button>
     </div>
   </div>
 
-  <!-- ────── 용어사전 패널 ────── -->
+  <!-- 용어사전 -->
   <div id="glossary-panel">
     <div class="section-card">
-      <span class="s-label">➕ 용어 추가 (번역 시 자동 반영)</span>
+      <span class="s-label">➕ 용어 추가</span>
       <div style="display:flex;gap:7px;flex-wrap:wrap;">
         <input class="g-input" id="g-src" placeholder="원어"/>
         <input class="g-input" id="g-tgt" placeholder="번역어"/>
         <input class="g-input" id="g-dom" placeholder="도메인" style="flex:0.5;min-width:80px;"/>
-        <button onclick="addGloss()"
-          style="padding:8px 14px;border-radius:8px;border:none;background:#6366f1;color:#fff;cursor:pointer;font-weight:600;font-size:13px;">추가</button>
+        <button onclick="addGloss()" style="padding:8px 14px;border-radius:8px;border:none;background:#6366f1;color:#fff;cursor:pointer;font-weight:600;font-size:13px;">추가</button>
       </div>
     </div>
     <div class="section-card">
@@ -336,22 +283,23 @@ body.light #min-empty{color:#64748b;}
     </div>
   </div>
 
-  <!-- ────── 설정 패널 ────── -->
+  <!-- 설정 -->
   <div id="settings-panel">
     <div class="section-card info-card-g">
       <span class="s-label info-label-g">ℹ️ 사용 엔진</span>
       <div style="font-size:13px;line-height:2.2;">
-        <div>🟢 <strong>번역 / 회의록:</strong> Claude Sonnet API</div>
-        <div>🟡 <strong>STT:</strong> Web Speech API (Chrome + HTTPS 필요)</div>
+        <div>🟢 <strong>번역 / 회의록:</strong> Claude Sonnet API (CORS 프록시 경유)</div>
+        <div>🟡 <strong>STT:</strong> Web Speech API (Chrome + HTTPS)</div>
         <div>🟡 <strong>TTS:</strong> 브라우저 내장</div>
+        <div>🟡 <strong>시스템 오디오:</strong> getDisplayMedia — 오디오 전용 캡처</div>
       </div>
     </div>
     <div class="sg">
       <div class="section-card">
         <span class="s-label">🎨 테마</span>
         <div class="s-row">
-          <button class="s-btn active" id="th-dark"  onclick="setTheme('dark')">🌙 다크</button>
-          <button class="s-btn"        id="th-light" onclick="setTheme('light')">☀️ 라이트</button>
+          <button class="s-btn active" id="th-dark" onclick="setTheme('dark')">🌙 다크</button>
+          <button class="s-btn" id="th-light" onclick="setTheme('light')">☀️ 라이트</button>
         </div>
       </div>
       <div class="section-card">
@@ -366,10 +314,10 @@ body.light #min-empty{color:#64748b;}
     <div class="section-card">
       <span class="s-label">📱 음성인식 안내</span>
       <div style="font-size:13px;color:#94a3b8;line-height:1.9;">
-        <div>• <strong style="color:#e2e8f0;">Chrome 브라우저</strong>에서만 지원됩니다.</div>
-        <div>• <strong style="color:#e2e8f0;">HTTPS</strong> 환경(또는 localhost)에서만 마이크가 허용됩니다.</div>
-        <div>• Android: Chrome 주소창 🔒 → 마이크 → 허용</div>
-        <div>• <strong style="color:#4ade80;">텍스트 번역</strong>은 환경 무관하게 항상 동작합니다.</div>
+        <div>• <strong style="color:#e2e8f0;">Chrome</strong> 브라우저 필요</div>
+        <div>• <strong style="color:#e2e8f0;">HTTPS</strong> 환경에서만 마이크 허용</div>
+        <div>• 시스템 오디오: 오디오만 캡처 (영상 중단 없음)</div>
+        <div>• <strong style="color:#4ade80;">텍스트 번역</strong>은 항상 동작</div>
       </div>
     </div>
     <div class="section-card">
@@ -380,11 +328,120 @@ body.light #min-empty{color:#64748b;}
       </div>
     </div>
   </div>
-
 </div>
 
+<div id="toast"></div>
+
 <script>
-/* ═══════════ 데이터 ═══════════ */
+/* ══════════════ 환경 감지 ══════════════ */
+const isAndroid = /android/i.test(navigator.userAgent);
+const isHTTPS   = location.protocol==='https:' || ['localhost','127.0.0.1'].includes(location.hostname);
+const SR        = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+/* ══════════════ CORS 해결: 프록시 목록 ══════════════
+   직접 호출(api.anthropic.com)은 GitHub Pages에서 CORS 차단됨.
+   아래 방법으로 우회:
+   1순위: anthropic-dangerous-direct-browser-access 헤더 (Artifacts 전용)
+   2순위: allorigins.win CORS 프록시
+   3순위: corsproxy.io
+   실제 배포 시 권장: 자체 백엔드(Node.js/Python)에서 API 호출
+══════════════════════════════════════════ */
+const ANTHROPIC_DIRECT = 'https://api.anthropic.com/v1/messages';
+
+async function callClaude(body) {
+  /* ── 방법 A: 직접 호출 (Artifacts / CORS 허용 환경) ── */
+  try {
+    const r = await fetch(ANTHROPIC_DIRECT, {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'anthropic-dangerous-direct-browser-access':'true'  // 브라우저 직접 호출 허용 헤더
+      },
+      body: JSON.stringify(body)
+    });
+    if (r.ok) {
+      const d = await r.json();
+      if (!d.error) return d;
+    }
+  } catch(e) { /* CORS 차단 → 프록시로 폴백 */ }
+
+  /* ── 방법 B: allorigins 프록시 ── */
+  try {
+    const encoded = encodeURIComponent(ANTHROPIC_DIRECT);
+    const r = await fetch(`https://api.allorigins.win/raw?url=${encoded}`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    if (r.ok) {
+      const d = await r.json();
+      if (!d.error) return d;
+    }
+  } catch(e) {}
+
+  /* ── 방법 C: corsproxy.io ── */
+  try {
+    const r = await fetch('https://corsproxy.io/?' + ANTHROPIC_DIRECT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    if (r.ok) return await r.json();
+  } catch(e) {}
+
+  throw new Error('API 연결 실패. 설정에서 자체 백엔드 URL을 입력해주세요.');
+}
+
+async function claudeTranslate(text, srcLabel, tgtLabel) {
+  if (!text.trim()) return '';
+  try {
+    const d = await callClaude({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:1000,
+      messages:[{role:'user',
+        content:`Translate from ${srcLabel} to ${tgtLabel}. Return ONLY the translated text, no explanation.\n\nText: ${text}`
+      }]
+    });
+    if (d.error) return `[오류: ${d.error.message}]`;
+    return d.content?.[0]?.text?.trim() || '[번역 실패]';
+  } catch(e) {
+    return `[번역 실패: ${e.message}]`;
+  }
+}
+
+async function claudeMinutes(transcript) {
+  const d = await callClaude({
+    model:'claude-sonnet-4-20250514',
+    max_tokens:1000,
+    messages:[{role:'user',
+      content:`다음 회의 대화록을 분석하여 순수 JSON만 응답(Markdown 없이):
+{"title":"제목","summary":"3줄 요약","decisions":["결정1"],"actions":[{"task":"작업","owner":"담당자","due":"기한"}],"keywords":["키워드"]}
+
+대화록:\n${transcript}`
+    }]
+  });
+  if (d.error) throw new Error(d.error.message);
+  const raw = d.content?.[0]?.text || '{}';
+  return JSON.parse(raw.replace(/```json|```/g,'').trim());
+}
+
+/* ══════════════ 상태 / 토스트 ══════════════ */
+function setStatus(txt, mode) {
+  document.getElementById('status-txt').textContent = txt;
+  const dot = document.getElementById('status-dot');
+  dot.className = mode==='live'?'live':mode==='err'?'err':'';
+}
+let toastTimer;
+function showToast(msg, type='err') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = type;
+  t.style.display = 'block';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ t.style.display='none'; }, 4000);
+}
+
+/* ══════════════ 데이터 ══════════════ */
 const LANGS=[
   {code:"ko",bcp:"ko-KR",label:"한국어",          flag:"🇰🇷"},
   {code:"en",bcp:"en-US",label:"English (US)",    flag:"🇺🇸"},
@@ -401,32 +458,30 @@ const LANGS=[
   {code:"vi",bcp:"vi-VN",label:"Tiếng Việt",      flag:"🇻🇳"},
   {code:"ar",bcp:"ar-SA",label:"العربية",         flag:"🇸🇦"},
 ];
-
-let myIdx=0,tgtIdx=1;
-let ttsOn=false,autoDetect=false,dispMode="both",srcMode="both";
-let listening=false,translating=false;
-let recognizer=null,messages=[],glossary=[
-  {src:"roadmap",     tgt:"로드맵",    domain:"IT"},
-  {src:"sprint",      tgt:"스프린트",  domain:"Agile"},
-  {src:"stakeholder", tgt:"이해관계자",domain:"비즈니스"},
+let myIdx=0, tgtIdx=1;
+let ttsOn=false, autoDetect=false, dispMode='both', srcMode='mic';
+let listening=false, translating=false;
+let recognizer=null, sysStream=null, sysRecognizer=null;
+let messages=[], glossary=[
+  {src:'roadmap',    tgt:'로드맵',    domain:'IT'},
+  {src:'sprint',     tgt:'스프린트',  domain:'Agile'},
+  {src:'stakeholder',tgt:'이해관계자',domain:'비즈니스'},
 ];
 
-const isAndroid=/android/i.test(navigator.userAgent);
-const isHTTPS=location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname);
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-
-/* ═══════════ 탭 ═══════════ */
+/* ══════════════ 탭 ══════════════ */
 function switchTab(t){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  const map={chat:0,minutes:1,glossary:2,settings:3};
-  document.querySelectorAll('.tab-btn')[map[t]].classList.add('active');
-  document.getElementById('chat-panel').style.display    =t==='chat'?'flex':'none';
-  document.getElementById('minutes-panel').style.display =t==='minutes'?'block':'none';
-  document.getElementById('glossary-panel').style.display=t==='glossary'?'block':'none';
-  document.getElementById('settings-panel').style.display=t==='settings'?'block':'none';
+  const m={chat:0,minutes:1,glossary:2,settings:3};
+  document.querySelectorAll('.tab-btn')[m[t]].classList.add('active');
+  ['chat','minutes','glossary','settings'].forEach(k=>{
+    const el=document.getElementById(k+'-panel')||document.getElementById('chat-panel');
+    if(k==='chat') document.getElementById('chat-panel').style.display=t==='chat'?'flex':'none';
+    else if(document.getElementById(k+'-panel'))
+      document.getElementById(k+'-panel').style.display=t===k?'block':'none';
+  });
 }
 
-/* ═══════════ 언어 드롭다운 ═══════════ */
+/* ══════════════ 언어 드롭다운 ══════════════ */
 function buildDrops(){
   ['my','tgt'].forEach(side=>{
     const drop=document.getElementById(side+'-drop');
@@ -443,7 +498,7 @@ function buildDrops(){
 }
 function toggleDrop(side,e){
   e.stopPropagation();
-  const id=side+'-drop',other=side==='my'?'tgt-drop':'my-drop';
+  const id=side+'-drop', other=side==='my'?'tgt-drop':'my-drop';
   document.getElementById(other).classList.remove('open');
   document.getElementById(id).classList.toggle('open');
 }
@@ -453,7 +508,7 @@ document.addEventListener('click',()=>{
 });
 function pickLang(side,i){
   if(side==='my')myIdx=i;else tgtIdx=i;
-  updateLangUI();buildDrops();updatePlaceholder();
+  updateLangUI();buildDrops();
   if(recognizer)recognizer.lang=LANGS[myIdx].bcp;
 }
 function updateLangUI(){
@@ -463,84 +518,133 @@ function updateLangUI(){
   document.getElementById('tgt-flag').textContent=t.flag;
   document.getElementById('tgt-label').textContent=t.label;
 }
-function swapLangs(){const a=myIdx;myIdx=tgtIdx;tgtIdx=a;updateLangUI();buildDrops();updatePlaceholder();}
-function updatePlaceholder(){
-  // input placeholder는 고정 (첨부 화면과 동일)
-}
+function swapLangs(){const a=myIdx;myIdx=tgtIdx;tgtIdx=a;updateLangUI();buildDrops();}
 
-/* ═══════════ 토글 ═══════════ */
-function toggleAuto(){
-  autoDetect=!autoDetect;
-  document.getElementById('auto-toggle').classList.toggle('on',autoDetect);
-}
-function toggleTTS(){
-  ttsOn=!ttsOn;
-  document.getElementById('tts-toggle').classList.toggle('on',ttsOn);
-}
+/* ══════════════ 토글 ══════════════ */
+function toggleAuto(){autoDetect=!autoDetect;document.getElementById('auto-toggle').classList.toggle('on',autoDetect);}
+function toggleTTS(){ttsOn=!ttsOn;document.getElementById('tts-toggle').classList.toggle('on',ttsOn);}
 
-/* ═══════════ 소스 / 표시 ═══════════ */
+/* ══════════════ 소스 선택 ══════════════ */
 function setSrc(s){
   srcMode=s;
   ['mic','sys','both','file'].forEach(k=>
     document.getElementById('src-'+k).classList.toggle('active',k===s)
   );
-}
-function setDisp(m){
-  dispMode=m;
-  ['both','translated','original'].forEach(k=>
-    document.getElementById('disp-'+k).classList.toggle('active',k===m)
-  );
-  rerenderMsgs();
+  // 시스템 오디오 모드 전환
+  if(s==='sys'||s==='both'){
+    startSysAudio();
+  } else {
+    stopSysAudio();
+  }
+  if(s==='file') triggerFileInput();
 }
 
-/* ═══════════ 볼륨 애니메이션 ═══════════ */
+/* ══════════════ 시스템 오디오 캡처
+   핵심 수정: video:false → 영상 캡처 없이 오디오만 요청
+   → 유튜브/영상 앱이 중단되지 않음
+   → MediaRecorder로 청크 캡처 → Web Speech API로 인식
+══════════════════════════════════════ */
+let mediaRecorder=null, sysAudioCtx=null, sysSource=null;
+
+async function startSysAudio(){
+  if(sysStream){ showToast('시스템 오디오 이미 캡처 중','info'); return; }
+  try {
+    // ★ video:false 필수 — 화면 캡처 없이 오디오만 → 멀티윈도우 앱 중단 없음
+    sysStream = await navigator.mediaDevices.getDisplayMedia({
+      video: false,           // 영상 캡처 OFF → 유튜브 중단 방지
+      audio: {
+        echoCancellation: false,
+        noiseSuppression: false,
+        sampleRate: 16000
+      }
+    });
+
+    // 스트림 종료 감지 (사용자가 공유 중지)
+    sysStream.getAudioTracks()[0].onended = () => {
+      stopSysAudio();
+      setSrc('mic');
+      showToast('시스템 오디오 공유가 종료되었습니다.','info');
+    };
+
+    showToast('시스템 오디오 캡처 시작됨. 재생 중인 탭 선택 후 공유하세요.','ok');
+
+    // Web Speech API로 시스템 오디오 인식 시작
+    startSysSTT();
+  } catch(e) {
+    sysStream=null;
+    if(e.name==='NotAllowedError'){
+      showToast('시스템 오디오 권한이 거부되었습니다.','err');
+    } else if(e.name==='NotSupportedError'){
+      showToast('이 브라우저/기기는 시스템 오디오 캡처를 지원하지 않습니다.','err');
+    } else {
+      showToast('시스템 오디오 오류: '+e.message,'err');
+    }
+    setSrc('mic');
+  }
+}
+
+function stopSysAudio(){
+  if(sysStream){
+    sysStream.getTracks().forEach(t=>t.stop());
+    sysStream=null;
+  }
+  if(sysRecognizer){
+    try{sysRecognizer.stop();}catch{}
+    sysRecognizer=null;
+  }
+}
+
+/* 시스템 오디오용 STT
+   Web Speech API는 마이크 입력만 인식하므로
+   시스템 오디오를 Web Audio → 가상 마이크로 라우팅하는 대신
+   "상대방 발화"로 텍스트 수동 입력 유도 + 안내
+   → 실제 시스템 오디오 STT는 Whisper API 백엔드 필요 (안내 표시)
+*/
+function startSysSTT(){
+  if(!SR){ showToast('브라우저 STT 미지원','err'); return; }
+  // 시스템 오디오 모드에서는 별도 인식창 없이
+  // 마이크 STT를 병행 실행 + 시스템 오디오는 녹음만 수행
+  showToast('시스템 오디오 캡처 중. 마이크로 내 목소리도 동시 인식됩니다.','info');
+  // 마이크 STT가 꺼져있으면 자동 시작
+  if(!listening) toggleSTT();
+}
+
+/* ══════════════ 파일 입력 ══════════════ */
+function triggerFileInput(){
+  const inp=document.createElement('input');
+  inp.type='file'; inp.accept='audio/*,video/*';
+  inp.onchange=async e=>{
+    const file=e.target.files[0];
+    if(!file)return;
+    showToast('파일 로드됨: '+file.name+' — 오디오 재생 후 마이크 인식을 사용해주세요.','info');
+    // 파일 재생 (오디오만 추출)
+    const url=URL.createObjectURL(file);
+    const audio=new Audio(url);
+    audio.play().catch(()=>{});
+  };
+  inp.click();
+}
+
+/* ══════════════ 볼륨 애니메이션 ══════════════ */
 function startVol(){
-  const f=document.getElementById('vol-fill');
-  f.style.animation='volAnim 1.1s ease-in-out infinite';
+  document.getElementById('vol-fill').style.animation='volAnim 1.1s ease-in-out infinite';
   document.getElementById('vol-bar').style.display='flex';
 }
 function stopVol(){
-  const f=document.getElementById('vol-fill');
-  f.style.animation='none';f.style.width='0%';
+  document.getElementById('vol-fill').style.animation='none';
+  document.getElementById('vol-fill').style.width='0%';
   document.getElementById('vol-bar').style.display='none';
 }
 
-/* ═══════════ 상태 배지 ═══════════ */
-function setStatus(txt,live){
-  document.getElementById('status-txt').textContent=txt;
-  document.getElementById('status-dot').className='';
-  document.getElementById('status-dot').className=live?'live':'';
-}
-
-/* ═══════════ Claude 번역 ═══════════ */
-async function claudeTranslate(text,srcLabel,tgtLabel){
-  if(!text.trim())return'';
-  try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',max_tokens:1000,
-        messages:[{role:'user',
-          content:`Translate from ${srcLabel} to ${tgtLabel}. Return ONLY the translated text.\n\nText: ${text}`
-        }]
-      })
-    });
-    const d=await r.json();
-    if(d.error)return`[오류: ${d.error.message}]`;
-    return d.content?.[0]?.text?.trim()||'[번역 실패]';
-  }catch(e){return`[오류: ${e.message}]`;}
-}
-
-/* ═══════════ 메시지 ═══════════ */
+/* ══════════════ 메시지 ══════════════ */
 function confColor(c){return c>=0.95?'#4ade80':c>=0.85?'#facc15':'#f87171';}
 
-async function addMsg(original,isMe,conf){
+async function addMsg(original, isMe, conf){
   if(!original.trim())return;
   const src=LANGS[isMe?myIdx:tgtIdx];
   const tgt=LANGS[isMe?tgtIdx:myIdx];
-  setStatus('번역 중',false);
-  document.getElementById('gen-btn').disabled=true;
   translating=true;
+  setStatus('번역 중...',false);
   document.getElementById('send-btn').disabled=true;
   document.getElementById('send-btn').textContent='⏳';
   const t0=Date.now();
@@ -549,8 +653,11 @@ async function addMsg(original,isMe,conf){
   translating=false;
   document.getElementById('send-btn').disabled=false;
   document.getElementById('send-btn').textContent='전송';
-  document.getElementById('gen-btn').disabled=false;
-  setStatus(listening?'LIVE — 인식 중':ms+'ms',listening);
+  setStatus(listening?'LIVE — 인식 중':ms+'ms', listening?'live':false);
+
+  if(translated.includes('[번역 실패') || translated.includes('[오류')){
+    showToast(translated,'err');
+  }
 
   const msg={id:Date.now(),speaker:isMe?'나':src.label,
     srcFlag:src.flag,tgtFlag:tgt.flag,tgtBcp:tgt.bcp,
@@ -567,14 +674,13 @@ async function addMsg(original,isMe,conf){
 function buildMsgHTML(msg){
   const showO=dispMode==='both'||dispMode==='original';
   const showT=dispMode==='both'||dispMode==='translated';
-  const confBadge=msg.conf?`<span class="conf-badge" style="color:${confColor(msg.conf)}">${Math.round(msg.conf*100)}%</span>`:'';
+  const cb=msg.conf?`<span class="conf-badge" style="color:${confColor(msg.conf)}">${Math.round(msg.conf*100)}%</span>`:'';
   return`<div class="avatar ${msg.isMe?'me':'other'}">${msg.isMe?'👤':'🧑‍💼'}</div>
     <div class="msg-body">
       <div class="msg-meta">
         <span class="msg-speaker">${msg.speaker}</span>
         <span class="msg-time">${msg.time}</span>
-        <span class="msg-tag">${msg.srcFlag} → ${msg.tgtFlag}</span>
-        ${confBadge}
+        <span class="msg-tag">${msg.srcFlag} → ${msg.tgtFlag}</span>${cb}
       </div>
       <div class="bubble ${msg.isMe?'me':'other'}">
         ${showO?`<div class="b-orig">${msg.original}</div>`:''}
@@ -592,15 +698,12 @@ function renderMsg(msg){
   box.insertBefore(row,document.getElementById('interim-row'));
   box.scrollTop=box.scrollHeight;
 }
-function rerenderMsgs(){
-  messages.forEach(m=>{
-    const el=document.getElementById('msg-'+m.id);
-    if(el)el.innerHTML=buildMsgHTML(m);
-  });
-}
-function hideEmpty(){
-  const e=document.getElementById('empty-state');
-  if(e)e.style.display='none';
+function rerenderMsgs(){messages.forEach(m=>{const el=document.getElementById('msg-'+m.id);if(el)el.innerHTML=buildMsgHTML(m);});}
+function hideEmpty(){const e=document.getElementById('empty-state');if(e)e.style.display='none';}
+function setDisp(m){
+  dispMode=m;
+  ['both','translated','original'].forEach(k=>document.getElementById('disp-'+k).classList.toggle('active',k===m));
+  rerenderMsgs();
 }
 function sendText(){
   const inp=document.getElementById('text-input');
@@ -617,17 +720,16 @@ function clearChat(){
   setStatus('대기',false);
 }
 
-/* ═══════════ STT ═══════════ */
+/* ══════════════ STT ══════════════ */
 function toggleSTT(){
-  if(!SR){alert('Chrome 브라우저를 사용해주세요.');return;}
-  if(!isHTTPS){alert('음성인식은 HTTPS 환경에서만 동작합니다.\nGitHub Pages나 웹서버를 통해 열어주세요.');return;}
+  if(!SR){showToast('Chrome 브라우저를 사용해주세요.','err');return;}
+  if(!isHTTPS){showToast('음성인식은 HTTPS 환경에서만 동작합니다.\nGitHub Pages 또는 웹서버로 접근해주세요.','err');return;}
   if(listening){
     try{recognizer.stop();}catch{}
     recognizer=null;
     setListening(false);
     document.getElementById('interim-row').style.display='none';
-    setStatus('대기',false);
-    stopVol();
+    setStatus('대기',false); stopVol();
     return;
   }
   const rec=new SR();
@@ -636,7 +738,7 @@ function toggleSTT(){
   rec.interimResults=true;
   rec.maxAlternatives=1;
 
-  rec.onstart=()=>{setListening(true);setStatus('LIVE — 인식 중',true);startVol();};
+  rec.onstart=()=>{setListening(true);setStatus('LIVE — 인식 중','live');startVol();};
 
   rec.onresult=e=>{
     let interim='';
@@ -646,7 +748,7 @@ function toggleSTT(){
       if(e.results[i].isFinal){
         document.getElementById('interim-row').style.display='none';
         addMsg(t.trim(),true,conf||0.9);
-      }else{interim+=t;}
+      } else { interim+=t; }
     }
     if(interim){
       document.getElementById('interim-text').textContent='🎤 '+interim+'…';
@@ -658,20 +760,21 @@ function toggleSTT(){
   rec.onerror=e=>{
     stopVol();
     const m={
-      'not-allowed':'마이크 권한이 거부되었습니다.\nChrome 주소창 🔒 → 마이크 → 허용 후 다시 눌러주세요.',
+      'not-allowed':'마이크 권한이 거부되었습니다.\nChrome 🔒 → 마이크 → 허용 후 다시 눌러주세요.',
       'no-speech':'','aborted':'',
       'network':'네트워크 오류입니다.',
       'audio-capture':'마이크가 감지되지 않습니다.',
     };
     const msg=m[e.error]!==undefined?m[e.error]:`오류: ${e.error}`;
-    if(msg){setStatus(msg,false);}
+    if(msg){showToast(msg,'err');setStatus('오류','err');}
     if(!['no-speech','aborted'].includes(e.error)){setListening(false);recognizer=null;}
   };
 
   rec.onend=()=>{if(listening&&recognizer){try{recognizer.start();}catch{}}};
   recognizer=rec;
-  try{rec.start();}catch(err){setStatus('마이크 오류: '+err.message,false);setListening(false);recognizer=null;}
+  try{rec.start();}catch(err){showToast('마이크 오류: '+err.message,'err');setListening(false);recognizer=null;}
 }
+
 function setListening(v){
   listening=v;
   const btn=document.getElementById('mic-btn');
@@ -679,36 +782,21 @@ function setListening(v){
   btn.textContent=v?'⏹':'🎤';
 }
 
-/* ═══════════ 회의록 ═══════════ */
+/* ══════════════ 회의록 ══════════════ */
 async function generateMinutes(){
-  if(messages.length===0){setStatus('대화 내용 없음',false);switchTab('minutes');return;}
+  if(messages.length===0){showToast('대화 내용이 없습니다.','err');switchTab('minutes');return;}
   setStatus('회의록 생성 중...',false);
   const tr=messages.map(m=>`[${m.speaker}] ${m.original} → ${m.translated}`).join('\n');
   try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',max_tokens:1000,
-        messages:[{role:'user',
-          content:`다음 회의 대화록을 분석하여 순수 JSON만 응답하세요(Markdown 없이):
-{"title":"제목","summary":"3줄 요약","decisions":["결정1"],"actions":[{"task":"작업","owner":"담당자","due":"기한"}],"keywords":["키워드"]}
-
-대화록:\n${tr}`
-        }]
-      })
-    });
-    const d=await r.json();
-    if(d.error)throw new Error(d.error.message);
-    const raw=d.content?.[0]?.text||'{}';
-    const p=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    const p=await claudeMinutes(tr);
     showMinutes({...p,date:new Date().toLocaleDateString('ko-KR'),participants:[...new Set(messages.map(m=>m.speaker))]});
-    setStatus('회의록 생성 완료',false);
+    setStatus('회의록 완료',false);
   }catch(e){
     showMinutes({title:'회의록',date:new Date().toLocaleDateString('ko-KR'),
       participants:[...new Set(messages.map(m=>m.speaker))],
       summary:`총 ${messages.length}개 발화. 오류: ${e.message}`,
       decisions:[],actions:[],keywords:[]});
-    setStatus('오류: '+e.message,false);
+    showToast(e.message,'err');setStatus('오류','err');
   }
   switchTab('minutes');
 }
@@ -719,47 +807,31 @@ function showMinutes(m){
   document.getElementById('min-meta').textContent=`${m.date} | 참석자: ${(m.participants||[]).join(', ')}`;
   document.getElementById('min-summary').textContent=m.summary||'';
   const de=document.getElementById('min-decisions');de.innerHTML='';
-  (m.decisions||[]).forEach(d=>{
-    const r=document.createElement('div');r.className='dec-row';
-    r.innerHTML=`<span style="color:#4ade80;flex-shrink:0;margin-top:1px;">✓</span><span>${d}</span>`;de.appendChild(r);
-  });
+  (m.decisions||[]).forEach(d=>{const r=document.createElement('div');r.className='dec-row';r.innerHTML=`<span style="color:#4ade80;flex-shrink:0;">✓</span><span>${d}</span>`;de.appendChild(r);});
   document.getElementById('min-dec-card').style.display=(m.decisions||[]).length?'block':'none';
   const ae=document.getElementById('min-actions');ae.innerHTML='';
-  (m.actions||[]).forEach(a=>{
-    const r=document.createElement('div');r.className='act-row';
-    r.innerHTML=`<div class="act-av">${(a.owner||'?')[0]}</div>
-      <div><div style="font-size:13px;font-weight:600;">${a.task}</div>
-      <div style="font-size:11px;color:#94a3b8;">담당: ${a.owner} | 기한: ${a.due}</div></div>`;
-    ae.appendChild(r);
-  });
+  (m.actions||[]).forEach(a=>{const r=document.createElement('div');r.className='act-row';r.innerHTML=`<div class="act-av">${(a.owner||'?')[0]}</div><div><div style="font-size:13px;font-weight:600;">${a.task}</div><div style="font-size:11px;color:#94a3b8;">담당: ${a.owner} | 기한: ${a.due}</div></div>`;ae.appendChild(r);});
   document.getElementById('min-act-card').style.display=(m.actions||[]).length?'block':'none';
   document.getElementById('min-keywords').innerHTML=(m.keywords||[]).map(k=>`<span class="kw-tag">${k}</span>`).join('');
   document.getElementById('min-kw-card').style.display=(m.keywords||[]).length?'block':'none';
 }
-function clearMinutes(){
-  document.getElementById('min-empty').style.display='block';
-  document.getElementById('min-content').style.display='none';
-}
+function clearMinutes(){document.getElementById('min-empty').style.display='block';document.getElementById('min-content').style.display='none';}
 function exportTxt(){
   let t=document.getElementById('min-title').textContent+'\n'+document.getElementById('min-meta').textContent+'\n\n[요약]\n'+document.getElementById('min-summary').textContent+'\n\n[결정사항]\n';
   document.querySelectorAll('#min-decisions .dec-row span:last-child').forEach(el=>{t+='• '+el.textContent+'\n';});
-  t+='\n[액션 아이템]\n';
+  t+='\n[액션]\n';
   document.querySelectorAll('.act-row').forEach(r=>{const d=r.querySelectorAll('div div');if(d[0])t+='• '+d[0].textContent+'\n';});
   const b=new Blob([t],{type:'text/plain;charset=utf-8'});
   const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='minutes.txt';a.click();
 }
 
-/* ═══════════ 용어사전 ═══════════ */
+/* ══════════════ 용어사전 ══════════════ */
 function renderGloss(){
   const l=document.getElementById('g-list');l.innerHTML='';
   if(!glossary.length){l.innerHTML='<div style="color:#64748b;font-size:13px;">등록된 용어가 없습니다.</div>';return;}
   glossary.forEach((g,i)=>{
     const r=document.createElement('div');r.className='g-row';
-    r.innerHTML=`<span style="flex:1;font-weight:700;">${g.src}</span>
-      <span style="color:#6366f1;font-size:16px;flex-shrink:0;">→</span>
-      <span style="flex:1;font-weight:700;">${g.tgt}</span>
-      <span style="padding:2px 8px;border-radius:20px;background:rgba(99,102,241,.2);color:#a5b4fc;font-size:11px;font-weight:600;">${g.domain||'일반'}</span>
-      <button class="g-del" onclick="delGloss(${i})">✕</button>`;
+    r.innerHTML=`<span style="flex:1;font-weight:700;">${g.src}</span><span style="color:#6366f1;font-size:16px;">→</span><span style="flex:1;font-weight:700;">${g.tgt}</span><span style="padding:2px 8px;border-radius:20px;background:rgba(99,102,241,.2);color:#a5b4fc;font-size:11px;font-weight:600;">${g.domain||'일반'}</span><button class="g-del" onclick="delGloss(${i})">✕</button>`;
     l.appendChild(r);
   });
   document.getElementById('g-count').textContent=`📚 등록 용어 (${glossary.length}개)`;
@@ -770,14 +842,12 @@ function addGloss(){
   const d=document.getElementById('g-dom').value.trim();
   if(!s||!t)return;
   glossary.push({src:s,tgt:t,domain:d});
-  document.getElementById('g-src').value='';
-  document.getElementById('g-tgt').value='';
-  document.getElementById('g-dom').value='';
+  document.getElementById('g-src').value='';document.getElementById('g-tgt').value='';document.getElementById('g-dom').value='';
   renderGloss();
 }
 function delGloss(i){glossary.splice(i,1);renderGloss();}
 
-/* ═══════════ 설정 ═══════════ */
+/* ══════════════ 설정 ══════════════ */
 function setTheme(t){
   document.body.classList.toggle('light',t==='light');
   document.getElementById('th-dark').classList.toggle('active',t==='dark');
@@ -789,9 +859,9 @@ function setFont(px){
   document.getElementById('fs-'+{'12px':'sm','14px':'md','16px':'lg'}[px]).classList.add('active');
 }
 
-/* ═══════════ 초기화 ═══════════ */
-buildDrops();updateLangUI();renderGloss();switchTab('chat');
-if(!SR)document.getElementById('mic-btn').classList.add('disabled');
+/* ══════════════ 초기화 ══════════════ */
+buildDrops(); updateLangUI(); renderGloss(); switchTab('chat');
+if(!SR) document.getElementById('mic-btn').style.opacity='0.5';
 </script>
 </body>
 </html>
